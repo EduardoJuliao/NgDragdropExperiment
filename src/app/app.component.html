@@ -3,14 +3,31 @@
 
   <div class="list-container">
 
+    <div class="backlog-container column-container">
+      <div class="list"
+           cdkDropList
+           #backlogList="cdkDropList"
+           [cdkDropListData]="backlog"
+           [cdkDropListConnectedTo]="[todoList, doneList]"
+           (cdkDropListDropped)="onDrop($event)">
+        <h2>Backlog</h2>
+        <mat-card *ngFor="let bl of backlog" cdkDrag>
+          <mat-card-header>
+            <mat-card-title>#{{bl.id}} - {{bl.title}}</mat-card-title>
+            <mat-card-subtitle>Subtitle</mat-card-subtitle>
+          </mat-card-header>
+        </mat-card>
+      </div>
+    </div>
+
     <div class="todo-container column-container">
       <div class="list"
            cdkDropList
            #todoList="cdkDropList"
            [cdkDropListData]="todos"
-           [cdkDropListConnectedTo]="[doneList]"
+           [cdkDropListConnectedTo]="[backlogList, doneList]"
            (cdkDropListDropped)="onDrop($event)">
-        <h2>Tech to learn</h2>
+        <h2>Todo</h2>
         <mat-card *ngFor="let todo of todos" cdkDrag>
           <mat-card-header>
             <mat-card-title>#{{todo.id}} - {{todo.title}}</mat-card-title>
@@ -25,9 +42,9 @@
            cdkDropList
            #doneList="cdkDropList"
            [cdkDropListData]="completed"
-           [cdkDropListConnectedTo]="todoList"
+           [cdkDropListConnectedTo]="[backlogList, todoList]"
            (cdkDropListDropped)="onDrop($event)">
-        <h2>Tech learned</h2>
+        <h2>Done</h2>
         <mat-card *ngFor="let complete of completed" cdkDrag>
           <mat-card-header>
             <mat-card-title>#{{complete.id}} - {{complete.title}}</mat-card-title>
