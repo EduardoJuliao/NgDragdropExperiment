@@ -1,3 +1,4 @@
+import { AppService } from './app.service.component';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 
@@ -14,7 +15,7 @@ import { DragDropModule } from '@angular/cdk/drag-drop';
     MatCardModule,
     DragDropModule
   ],
-  providers: [],
+  providers: [AppService],
   bootstrap: [AppComponent]
 })
 export class AppModule {}
