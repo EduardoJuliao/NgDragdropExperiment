@@ -13,13 +13,13 @@ import { AppService } from './app.service.component';
 export class AppComponent {
   title = 'ng-dragdrop-experiment';
 
-  constructor(private service: AppService) {
+  constructor(service: AppService) {
     service.getTodos()
-    .then(response => {
-      this.backlog = response.slice(0,4);
-      this.todos = response.slice(5,9);
-      this.completed = response.slice(10,14);
-    });
+      .then(response => {
+        this.backlog = response.slice(0,8);
+        this.todos = response.slice(9,11);
+        this.completed = response.slice(12,14);
+      });
   }
 
   backlog: any[];

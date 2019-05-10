@@ -36,7 +36,7 @@
  .list {
    border: RGBA(46, 49, 49, .7) solid 1px;
    border-radius: 2px;
-   height: 80vh;
+   height: 75vh;
    overflow-y: auto;
  }
  
