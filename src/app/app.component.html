@@ -3,7 +3,10 @@
 
   <div class="list-container">
     <div class="backlog-container column-container">
-      <h2>Backlog</h2>
+      <div class="list-header">
+          <h2>Backlog</h2>
+          <span>{{ backlog.length }}</span>
+        </div>
       <div
         class="list"
         cdkDropList
@@ -22,7 +25,10 @@
     </div>
 
     <div class="todo-container column-container">
-      <h2>Todo</h2>
+      <div class="list-header">
+        <h2>Todo</h2>
+        <span>{{ todos.length }}</span>
+      </div>
       <div
         class="list"
         cdkDropList
@@ -41,7 +47,11 @@
     </div>
 
     <div class="done-container column-container">
-      <h2>Done</h2>
+      <div class="list-header">
+        <h2>Done</h2>
+        <span>{{ completed.length }}</span>
+      </div>
+
       <div
         class="list"
         cdkDropList
